@@ -4,7 +4,7 @@ defmodule TinfoilDemo.MixProject do
   def project do
     [
       app: :tinfoil_demo,
-      version: "0.3.0",
+      version: "0.4.0",
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -17,6 +17,7 @@ defmodule TinfoilDemo.MixProject do
           :linux_arm64,
           :windows_x86_64
         ],
+        single_runner_per_os: true,
         homebrew: [enabled: false],
         installer: [enabled: true]
       ]
