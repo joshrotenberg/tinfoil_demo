@@ -4,7 +4,7 @@ defmodule TinfoilDemo.MixProject do
   def project do
     [
       app: :tinfoil_demo,
-      version: "0.8.0",
+      version: "0.9.0",
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -18,6 +18,10 @@ defmodule TinfoilDemo.MixProject do
           :windows_x86_64
         ],
         single_runner_per_os: true,
+        extra_artifacts: [
+          "LICENSE",
+          %{source: "README.md", dest: "share/doc/tinfoil_demo/README.md"}
+        ],
         homebrew: [
           enabled: true,
           tap: "joshrotenberg/homebrew-brew",
