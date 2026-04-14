@@ -1,17 +1,16 @@
 defmodule TinfoilDemo.CLI do
   @moduledoc """
-  Burrito entry point. Delegates to `TinfoilDemo.CLI.Root` via cheer.
+  Burrito-friendly entry point. `TinfoilDemo.Application.start/2`
+  calls `run/1` with the parsed argv, and halts the BEAM after we
+  return.
+
+  In a normal `mix run` Mix calls `run/1` directly without going
+  through the application callback, so the same code path covers
+  both modes. There is no `main/1` -- Burrito doesn't actually call
+  any `main_module` (that config key is metadata only); the OTP
+  application boot path is the real entry.
   """
 
-  def main(argv) do
-    # Burrito's wrapper doesn't halt the BEAM when main/1 returns, so
-    # the binary would otherwise sit there waiting on the runtime forever.
-    # Tests call run/1 directly to avoid killing the test runner.
-    run(argv)
-    System.halt(0)
-  end
-
-  @doc false
   def run(argv) do
     Cheer.run(TinfoilDemo.CLI.Root, argv, prog: "tinfoil_demo")
   end

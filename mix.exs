@@ -4,7 +4,7 @@ defmodule TinfoilDemo.MixProject do
   def project do
     [
       app: :tinfoil_demo,
-      version: "0.7.0",
+      version: "0.7.1",
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -30,7 +30,8 @@ defmodule TinfoilDemo.MixProject do
 
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {TinfoilDemo.Application, []}
     ]
   end
 
@@ -54,6 +55,8 @@ defmodule TinfoilDemo.MixProject do
             linux_arm64: [os: :linux, cpu: :aarch64],
             windows_x86_64: [os: :windows, cpu: :x86_64]
           ],
+          # main_module is metadata-only in Burrito; the real entry is
+          # TinfoilDemo.Application.start/2.
           main_module: TinfoilDemo.CLI
         ]
       ]
