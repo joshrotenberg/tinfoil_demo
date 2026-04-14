@@ -7,14 +7,30 @@ so this repo doubles as a working example of the whole stack.
 
 ## Install
 
-Via Homebrew (tap maintained automatically by tinfoil):
+**Homebrew** (tap maintained automatically by tinfoil):
 
 ```sh
 brew install joshrotenberg/brew/tinfoil_demo
 ```
 
-Or download a release tarball for your platform from
-<https://github.com/joshrotenberg/tinfoil_demo/releases/latest>.
+**curl | sh** (downloads the right tarball for your OS/arch and
+verifies its sha256):
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/joshrotenberg/tinfoil_demo/main/scripts/install.sh | sh
+```
+
+Pin a version or pick the install location:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/joshrotenberg/tinfoil_demo/main/scripts/install.sh \
+  | sh -s -- --version v0.5.0 --install-dir ~/.local/bin
+```
+
+**Manual.** Download a tarball or zip for your platform from
+<https://github.com/joshrotenberg/tinfoil_demo/releases/latest>,
+extract, and put the binary on your `PATH`. Verify with
+`checksums-sha256.txt` from the same release.
 
 ## Usage
 
