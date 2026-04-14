@@ -4,7 +4,7 @@ defmodule TinfoilDemo.MixProject do
   def project do
     [
       app: :tinfoil_demo,
-      version: "0.9.0",
+      version: "0.10.0",
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -25,6 +25,11 @@ defmodule TinfoilDemo.MixProject do
         homebrew: [
           enabled: true,
           tap: "joshrotenberg/homebrew-brew",
+          token_secret: "COMMITTER_TOKEN"
+        ],
+        scoop: [
+          enabled: true,
+          bucket: "joshrotenberg/scoop-bucket",
           token_secret: "COMMITTER_TOKEN"
         ],
         installer: [enabled: true]
