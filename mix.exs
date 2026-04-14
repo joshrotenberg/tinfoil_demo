@@ -4,7 +4,7 @@ defmodule TinfoilDemo.MixProject do
   def project do
     [
       app: :tinfoil_demo,
-      version: "0.4.0",
+      version: "0.5.0",
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -18,7 +18,11 @@ defmodule TinfoilDemo.MixProject do
           :windows_x86_64
         ],
         single_runner_per_os: true,
-        homebrew: [enabled: false],
+        homebrew: [
+          enabled: true,
+          tap: "joshrotenberg/homebrew-brew",
+          token_secret: "COMMITTER_TOKEN"
+        ],
         installer: [enabled: true]
       ]
     ]
