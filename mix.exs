@@ -26,7 +26,7 @@ defmodule TinfoilDemo.MixProject do
   defp deps do
     [
       {:burrito, "~> 1.0"},
-      {:tinfoil, path: "../tinfoil", runtime: false}
+      {:tinfoil, "~> 0.2", runtime: false}
     ]
   end
 
