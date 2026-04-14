@@ -4,7 +4,7 @@ defmodule TinfoilDemo.MixProject do
   def project do
     [
       app: :tinfoil_demo,
-      version: "0.5.0",
+      version: "0.6.0",
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -37,6 +37,7 @@ defmodule TinfoilDemo.MixProject do
   defp deps do
     [
       {:burrito, "~> 1.0"},
+      {:cheer, "~> 0.1"},
       {:tinfoil, "~> 0.2", runtime: false}
     ]
   end
