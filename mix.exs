@@ -7,22 +7,43 @@ defmodule TinfoilDemo.MixProject do
       version: "0.1.0",
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      releases: releases(),
+      tinfoil: [
+        targets: [:darwin_arm64, :darwin_x86_64, :linux_x86_64, :linux_arm64],
+        homebrew: [enabled: false],
+        installer: [enabled: true]
+      ]
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:burrito, "~> 1.0"},
+      {:tinfoil, path: "../tinfoil", runtime: false}
+    ]
+  end
+
+  defp releases do
+    [
+      tinfoil_demo: [
+        steps: [:assemble, &Burrito.wrap/1],
+        burrito: [
+          targets: [
+            darwin_arm64: [os: :darwin, cpu: :aarch64],
+            darwin_x86_64: [os: :darwin, cpu: :x86_64],
+            linux_x86_64: [os: :linux, cpu: :x86_64],
+            linux_arm64: [os: :linux, cpu: :aarch64]
+          ],
+          main_module: TinfoilDemo.CLI
+        ]
+      ]
     ]
   end
 end
