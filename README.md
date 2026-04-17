@@ -1,9 +1,10 @@
 # tinfoil_demo
 
 A tiny Elixir CLI packaged with [Burrito](https://github.com/burrito-elixir/burrito)
-and released end-to-end by [tinfoil](https://github.com/joshrotenberg/tinfoil).
-The command tree is built with [cheer](https://github.com/joshrotenberg/cheer),
-so this repo doubles as a working example of the whole stack.
+and released end-to-end by [tinfoil](https://github.com/joshrotenberg/tinfoil)
+([docs](https://hexdocs.pm/tinfoil)). The command tree is built with
+[cheer](https://github.com/joshrotenberg/cheer), so this repo doubles
+as a working example of the whole stack.
 
 ## Install
 
@@ -79,8 +80,14 @@ tinfoil_demo --help      # full help
   subcommands.
 
 Every release here is produced by running `mix tinfoil.generate`
-against a stock `mix.exs` and tagging a version — no hand-edited
+against a stock `mix.exs` and tagging a version -- no hand-edited
 YAML.
+
+Want to release your own CLI the same way? The full story lives in
+the tinfoil docs on [hexdocs.pm/tinfoil](https://hexdocs.pm/tinfoil),
+including a walkthrough of wiring
+[release-please](https://hexdocs.pm/tinfoil/release_please.html)
+for automated version bumps (which is what this repo uses).
 
 ## Verify a release
 
